@@ -105,6 +105,10 @@ class Sensor : public EntityBase, public EntityBase_DeviceClass, public EntityBa
   /// Getter-syntax for .raw_state
   float get_raw_state() const;
 
+  virtual std::string get_display_value() {
+    return value_accuracy_to_string(this->get_state(), this->get_accuracy_decimals());
+  }
+
   /** Publish a new state to the front-end.
    *
    * First, the new state will be assigned to the raw_value. Then it's passed through all filters

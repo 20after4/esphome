@@ -74,6 +74,14 @@ class BinarySensor : public EntityBase, public EntityBase_DeviceClass {
 
   virtual bool is_status_binary_sensor() const;
 
+  std::string get_display_value() {
+    if (this->has_state()) {
+      return this->state ? "ON" : "OFF";
+    } else {
+      return "n/a";
+    }
+  }
+
  protected:
   CallbackManager<void(bool)> state_callback_{};
   Filter *filter_list_{nullptr};

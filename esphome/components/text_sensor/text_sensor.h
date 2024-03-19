@@ -71,6 +71,13 @@ class TextSensor : public EntityBase, public EntityBase_DeviceClass {
 
   void internal_send_state_to_frontend(const std::string &state);
 
+  std::string get_display_value() {
+    if (this->has_state()) {
+      return this->state;
+    } else {
+      return "n/a";
+    }
+  }
  protected:
   CallbackManager<void(std::string)> raw_callback_;  ///< Storage for raw state callbacks.
   CallbackManager<void(std::string)> callback_;      ///< Storage for filtered state callbacks.

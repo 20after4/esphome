@@ -47,6 +47,8 @@ class EntityBase {
   std::string get_icon() const;
   void set_icon(const char *icon);
 
+  virtual std::string get_display_value() { return ""; };
+
  protected:
   /// The hash_base() function has been deprecated. It is kept in this
   /// class for now, to prevent external components from not compiling.

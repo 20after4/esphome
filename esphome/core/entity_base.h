@@ -46,7 +46,10 @@ class EntityBase {
   // Get/set this entity's icon
   std::string get_icon() const;
   void set_icon(const char *icon);
-
+  
+  // HACK: get_display_value() added to enable custom functionality in 
+  // [esphome-info-display](https://github.com/20after4/esphome-energy-monitor/blob/main/esphome-info-display/widget.h)
+  virtual std::string get_display_value() { return ""; };
  protected:
   /// The hash_base() function has been deprecated. It is kept in this
   /// class for now, to prevent external components from not compiling.
